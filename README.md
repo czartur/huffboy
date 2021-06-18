@@ -1,5 +1,5 @@
 # Prática (Algoritmo de Huffman)
-
+Grupo: César e Almeida
 ## Tarefa (1): Codificação
 *Compilar Node.cpp + Origem.cpp com algum arquivo de texto de nome "input.txt"*
 
