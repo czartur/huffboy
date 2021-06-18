@@ -3,7 +3,7 @@
 
 class Node{
 public:
-    int m_id; //0 ~ 255 (ascii table characters) 256~(2*#dif.char -1) (artifical nodes)
+    int m_id; //0 ~ 255 (ascii table characters) 256~(255+2*#dif.char) (artifical nodes)
     int m_freq;
     Node* left;
     Node* right; 
