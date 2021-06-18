@@ -4,4 +4,4 @@
 *Compilar Node.cpp + Origem.cpp com algum arquivo de texto de nome "input.txt"*
 
 ## Tarefa (2): Decodificação
-*Compilar Node.cpp + Fim.cpp com os dois arquivos de texto gerados na primeira tarefa*
+*Compilar Node.cpp + Fim.cpp com os dois arquivos de texto, "arvhuf.txt" e "texto.hfm", gerados na primeira tarefa*
