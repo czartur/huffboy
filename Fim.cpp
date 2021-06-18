@@ -21,7 +21,7 @@ void recoveryTree(vector<Node> &pre, vector<Node> &sim, int lp, int rp, int ls, 
 
 char treeWalk(Node* cur, FILE* fcur){
     char c;
-    if(cur->left == nullptr && cur->right == nullptr) return cur->m_data;
+    if(cur->left == nullptr && cur->right == nullptr) return (char)cur->m_id;
     if((c=fgetc(fcur)) == EOF) return EOF;
     else if (c == '0') return treeWalk(cur->left, fcur);
     return  treeWalk(cur->right, fcur);
@@ -40,23 +40,26 @@ int main(){
     fseek(huf, 0, SEEK_END);
     int tam = ftell(huf);
     rewind(huf);
-    char caractere, lixo;
-    int numero;
+    char lixo;
+    int freq, id;
     vector<Node> pre, sim;
-    while((fscanf(huf, "%d%c%c%c", &numero, &lixo, &caractere, &lixo)) != EOF){
+    while((fscanf(huf, "%d%c%d", &freq, &lixo, &id)) != EOF){
         //cout << caractere << numero << endl;
-        if(ftell(huf)<=tam/2) pre.push_back(Node(caractere, numero));
-        else sim.push_back(Node(caractere, numero));
+        if(ftell(huf)<=tam/2) pre.push_back(Node(id, freq));
+        else sim.push_back(Node(id, freq));
     } 
     
-    //recovery Tree from pre-order and sim-order
+    //recovery tree from pre-order and sim-order
     Node* head = nullptr;
     recoveryTree(pre, sim, 0, pre.size()-1, 0, sim.size()-1, &head);
 
-    //translate 'texto.hfm' using Tree
+    //translate 'texto.hfm' using tree
+    char caractere;
     while((caractere = treeWalk(head, texto)) != EOF){
         fprintf(saida, "%c", caractere);
     }
+
+    cout << "Prime Day 21 de Junho" << endl;
 
     fclose(huf);
     fclose(saida);
